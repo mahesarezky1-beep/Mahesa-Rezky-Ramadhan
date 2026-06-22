@@ -1,0 +1,1389 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio 2026</title>
+    <style>
+      :root {
+        --bg: #06080d;
+        --bg-2: #0b1220;
+        --panel: rgba(13, 18, 28, 0.86);
+        --panel-2: rgba(255, 255, 255, 0.04);
+        --stroke: rgba(255, 255, 255, 0.08);
+        --stroke-strong: rgba(255, 255, 255, 0.14);
+        --text: #eef4fb;
+        --muted: rgba(238, 244, 251, 0.7);
+        --muted-2: rgba(238, 244, 251, 0.54);
+        --accent: #7cc4ff;
+        --accent-2: #dff4ff;
+        --shadow: 0 24px 60px rgba(0, 0, 0, 0.46);
+        --shadow-soft: 0 12px 36px rgba(0, 0, 0, 0.28);
+        --radius-xl: 32px;
+        --radius-lg: 24px;
+        --radius-md: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--text);
+        font-family:
+          Inter,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Arial,
+          sans-serif;
+        background:
+          radial-gradient(
+            900px 560px at 12% 10%,
+            rgba(53, 117, 255, 0.16),
+            transparent 60%
+          ),
+          radial-gradient(
+            720px 420px at 88% 12%,
+            rgba(0, 210, 255, 0.12),
+            transparent 60%
+          ),
+          radial-gradient(
+            700px 380px at 50% 92%,
+            rgba(10, 132, 255, 0.08),
+            transparent 60%
+          ),
+          linear-gradient(180deg, #05070c 0%, #070b12 48%, #04060a 100%);
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .page {
+        width: min(1240px, calc(100% - 20px));
+        margin: 0 auto;
+        padding: 12px 0 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 10px;
+        z-index: 30;
+        display: flex;
+        justify-content: center;
+        pointer-events: none;
+      }
+
+      .topbar-inner {
+        pointer-events: auto;
+        display: inline-flex;
+        gap: 8px;
+        padding: 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(8, 11, 16, 0.66);
+        backdrop-filter: blur(16px);
+        box-shadow: var(--shadow-soft);
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-link {
+        padding: 10px 16px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        color: rgba(238, 244, 251, 0.82);
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        transition: 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .nav-link:hover {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(255, 255, 255, 0.08);
+      }
+
+      .nav-link.active {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.97),
+          rgba(219, 233, 248, 0.97)
+        );
+        color: #0d1520;
+      }
+
+      .panel {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-xl);
+        background: linear-gradient(
+          180deg,
+          rgba(13, 18, 28, 0.94),
+          rgba(6, 10, 16, 0.98)
+        );
+        box-shadow: var(--shadow);
+      }
+
+      .panel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        padding: 1px;
+        border-radius: inherit;
+        background: linear-gradient(
+          135deg,
+          rgba(124, 196, 255, 0.16),
+          transparent 22%,
+          transparent 78%,
+          rgba(124, 196, 255, 0.08)
+        );
+        -webkit-mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+
+      .section {
+        padding: 24px;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        align-items: end;
+        margin-bottom: 16px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba(238, 244, 251, 0.88);
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        backdrop-filter: blur(14px);
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, var(--accent-2), #4ea7ff);
+        box-shadow: 0 0 18px rgba(124, 196, 255, 0.4);
+      }
+
+      /* START */
+      .hero {
+        min-height: auto;
+        padding: 24px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 0.9fr;
+        gap: 22px;
+        align-items: center;
+      }
+
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .hero-title {
+        margin: 0;
+        font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+        font-size: clamp(3.2rem, 9vw, 6.5rem);
+        line-height: 0.9;
+        letter-spacing: -0.05em;
+        text-transform: uppercase;
+        color: #f0f5fb;
+      }
+
+      .hero-subtitle {
+        margin: 0;
+        font-size: clamp(1rem, 2.6vw, 1.5rem);
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--muted);
+        line-height: 1.4;
+      }
+
+      .hero-photo-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-photo {
+        width: min(100%, 430px);
+        aspect-ratio: 4 / 5;
+        border-radius: 28px;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          0 22px 48px rgba(0, 0, 0, 0.34);
+      }
+
+      .hero-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 30% 18%,
+            rgba(255, 255, 255, 0.16),
+            transparent 18%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.08),
+            transparent 28%,
+            transparent 75%,
+            rgba(0, 0, 0, 0.18)
+          );
+        pointer-events: none;
+      }
+
+      .hero-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+      }
+
+      /* PROFILE */
+      .profile {
+        display: grid;
+        grid-template-columns: 0.98fr 1.12fr;
+        gap: 26px;
+        align-items: start;
+        background:
+          radial-gradient(
+            700px 420px at 14% 20%,
+            rgba(0, 168, 255, 0.12),
+            transparent 62%
+          ),
+          linear-gradient(180deg, rgba(8, 14, 22, 0.98), rgba(5, 8, 12, 0.99));
+      }
+
+      .profile-left,
+      .profile-right {
+        padding-top: 0;
+      }
+
+      .hello {
+        margin: 0 0 8px;
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.58);
+      }
+
+      .name {
+        margin: 0;
+        font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+        font-size: clamp(2.2rem, 4.8vw, 3.9rem);
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+      }
+
+      .portrait {
+        margin-top: 16px;
+        width: min(100%, 340px);
+        aspect-ratio: 0.9 / 1;
+        border-radius: 32px;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background:
+          linear-gradient(180deg, rgba(10, 29, 47, 0.45), rgba(5, 6, 9, 0.35)),
+          url("Images/IMG_20240316_104015_400.webp") center/cover no-repeat;
+        box-shadow: 0 0 60px rgba(33, 176, 255, 0.16);
+      }
+
+      .portrait::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 58% 15%,
+            rgba(255, 255, 255, 0.16),
+            transparent 18%
+          ),
+          linear-gradient(
+            155deg,
+            transparent 0 54%,
+            rgba(255, 255, 255, 0.04) 55% 58%,
+            transparent 59% 100%
+          );
+        pointer-events: none;
+      }
+
+      .info-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .info-chip {
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(240, 246, 255, 0.86);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .about-title {
+        margin: 0 0 10px;
+        font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+        font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+        line-height: 0.94;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+      }
+
+      .about-text {
+        margin: 0 0 18px;
+        max-width: 760px;
+        color: rgba(255, 255, 255, 0.74);
+        line-height: 1.8;
+        font-size: 14px;
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin: 12px 0 18px;
+      }
+
+      .skill {
+        min-height: 112px;
+        padding: 14px 12px;
+        border-radius: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0.04)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .skill img {
+        width: 52px;
+        height: 52px;
+        object-fit: contain;
+        filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.22));
+      }
+
+      .skill span {
+        font-size: 10px;
+        line-height: 1.25;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(238, 244, 251, 0.88);
+      }
+
+      .meta-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-top: 14px;
+      }
+
+      .meta,
+      .experience-item {
+        padding: 16px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      }
+
+      .meta:nth-child(3) {
+        grid-column: 1 / -1;
+      }
+
+      .meta h4 {
+        margin: 0 0 10px;
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #f1f5fb;
+      }
+
+      .meta p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 13px;
+        line-height: 1.72;
+        white-space: pre-line;
+      }
+
+      .experience-list {
+        display: grid;
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .experience-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .experience-item h5 {
+        margin: 0;
+        font-size: 14px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #f4f7fc;
+      }
+
+      .experience-item .role {
+        margin: 4px 0 0;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(159, 209, 255, 0.92);
+      }
+
+      .experience-item .date {
+        flex: none;
+        padding: 7px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(233, 241, 251, 0.82);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .experience-item ul {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.7;
+        font-size: 13px;
+      }
+
+      .experience-item li + li {
+        margin-top: 6px;
+      }
+
+      /* PROJECTS */
+      .projects {
+        background:
+          radial-gradient(
+            840px 460px at 50% 0%,
+            rgba(0, 141, 255, 0.11),
+            transparent 62%
+          ),
+          linear-gradient(180deg, rgba(8, 13, 19, 0.98), rgba(5, 8, 12, 0.99));
+      }
+
+      .projects-title {
+        margin: 0;
+        font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+        font-size: clamp(2rem, 4.2vw, 3.4rem);
+        line-height: 0.9;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+      }
+
+      .projects-title span {
+        font-size: 0.62em;
+        color: rgba(255, 255, 255, 0.44);
+        margin-left: 6px;
+      }
+
+      .pill {
+        padding: 8px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.97),
+          rgba(220, 233, 248, 0.97)
+        );
+        color: #101820;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        white-space: nowrap;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .proj {
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: #0d1118;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.05),
+          var(--shadow-soft);
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        transition:
+          transform 0.22s ease,
+          box-shadow 0.22s ease,
+          border-color 0.22s ease;
+      }
+
+      .proj:hover {
+        transform: translateY(-3px);
+        border-color: rgba(159, 209, 255, 0.18);
+      }
+
+      .proj-media {
+        position: relative;
+        flex: 1 1 auto;
+        min-height: 170px;
+        padding: 12px;
+        background:
+          radial-gradient(
+            circle at 50% 50%,
+            rgba(255, 255, 255, 0.03),
+            transparent 60%
+          ),
+          #0c1118;
+      }
+
+      .proj-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 0%,
+          transparent 78%,
+          rgba(0, 0, 0, 0.08) 100%
+        );
+        pointer-events: none;
+      }
+
+      .proj img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        filter: saturate(1.03) contrast(1.02);
+      }
+
+      .label {
+        min-height: 54px;
+        padding: 12px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(6, 10, 16, 0.95);
+      }
+
+      .label strong {
+        display: block;
+        max-width: 82%;
+        font-size: 12px;
+        line-height: 1.25;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        word-break: break-word;
+      }
+
+      .label span {
+        flex: none;
+        font-size: 11px;
+        line-height: 1;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.78);
+        white-space: nowrap;
+      }
+
+      /* CONTACT */
+      .contact {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+        align-items: center;
+        background:
+          radial-gradient(
+            620px 360px at 88% 70%,
+            rgba(0, 140, 255, 0.1),
+            transparent 60%
+          ),
+          linear-gradient(180deg, rgba(7, 11, 16, 0.98), rgba(4, 6, 9, 0.99));
+      }
+
+      .contact-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .contact-avatar {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 0 60px rgba(42, 167, 255, 0.18);
+        background:
+          linear-gradient(180deg, rgba(10, 29, 47, 0.35), rgba(0, 0, 0, 0.15)),
+          url("Images/20230812_211508.jpg") center/cover no-repeat;
+      }
+
+      .contact-avatar::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 58% 15%,
+          rgba(255, 255, 255, 0.16),
+          transparent 18%
+        );
+        pointer-events: none;
+      }
+
+      .socials {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .soc {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: max-content;
+        padding: 10px 14px 10px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.04);
+        color: #eef4ff;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        backdrop-filter: blur(10px);
+      }
+
+      .soc-icon {
+        width: 28px;
+        height: 28px;
+        flex: none;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .soc-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 4px;
+      }
+
+      .contact-right {
+        text-align: center;
+      }
+
+      .thanks {
+        margin: 0;
+        font-family: Impact, Haettenschweiler, "Arial Black", sans-serif;
+        font-size: clamp(3rem, 7vw, 6.2rem);
+        line-height: 0.84;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+        color: #dfe6f2;
+        text-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      }
+
+      .thanks small {
+        display: block;
+        font-size: 0.66em;
+        color: #edf1f8;
+        opacity: 0.96;
+      }
+
+      .footer-assets {
+        margin-top: 22px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .mini {
+        min-height: 110px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        overflow: hidden;
+        position: relative;
+        background: #10141b;
+      }
+
+      .mini .img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .mini .cap {
+        position: absolute;
+        left: 12px;
+        bottom: 10px;
+        z-index: 2;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: #fff;
+        text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7);
+      }
+
+      .mini::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 0%,
+          transparent 55%,
+          rgba(0, 0, 0, 0.42) 100%
+        );
+      }
+
+      .contact-note {
+        margin: 16px auto 0;
+        max-width: 460px;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.8;
+        font-size: 13px;
+      }
+
+      @media (max-width: 1100px) {
+        .project-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
+        .profile,
+        .contact {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-grid {
+          gap: 16px;
+        }
+
+        .hero-copy {
+          text-align: center;
+          align-items: center;
+        }
+
+        .hero-photo {
+          width: min(100%, 380px);
+        }
+
+        .section-head {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .meta-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .meta:nth-child(3) {
+          grid-column: auto;
+        }
+
+        .contact-right {
+          text-align: left;
+        }
+
+        .footer-assets {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .project-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          width: min(100% - 14px, 1240px);
+          padding: 8px 0 14px;
+          gap: 12px;
+        }
+
+        .panel {
+          border-radius: 22px;
+        }
+        .section {
+          padding: 16px;
+        }
+
+        .topbar {
+          top: 8px;
+        }
+
+        .topbar-inner {
+          gap: 6px;
+          padding: 6px;
+        }
+
+        .nav-link {
+          padding: 9px 12px;
+          font-size: 10px;
+          letter-spacing: 0.12em;
+        }
+
+        .hero {
+          padding: 16px;
+        }
+
+        .hero-grid {
+          gap: 14px;
+        }
+
+        .hero-title {
+          font-size: clamp(2.8rem, 16vw, 4.5rem);
+        }
+
+        .hero-subtitle {
+          letter-spacing: 0.18em;
+          font-size: 0.92rem;
+        }
+
+        .portrait {
+          width: 100%;
+          max-width: 340px;
+          margin-inline: auto;
+          border-radius: 24px;
+        }
+
+        .projects-title {
+          font-size: clamp(1.8rem, 9vw, 2.8rem);
+        }
+
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .proj-media {
+          min-height: 210px;
+        }
+
+        .contact-left {
+          justify-content: center;
+        }
+
+        .contact-avatar {
+          width: 160px;
+          height: 160px;
+        }
+
+        .footer-assets {
+          grid-template-columns: 1fr;
+        }
+
+        .thanks {
+          font-size: clamp(2.6rem, 16vw, 4.8rem);
+          text-align: center;
+        }
+
+        .contact-right {
+          text-align: center;
+        }
+
+        .skills {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="topbar" aria-label="Navigasi utama">
+        <nav class="topbar-inner">
+          <a class="nav-link active" href="#home">Start</a>
+          <a class="nav-link" href="#profile">Profile</a>
+          <a class="nav-link" href="#project">Project</a>
+          <a class="nav-link" href="#contact">Contact Person</a>
+        </nav>
+      </header>
+
+      <!-- START -->
+      <section class="panel hero" id="home">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1 class="hero-title">Portfolio</h1>
+            <p class="hero-subtitle">Design Grafis</p>
+          </div>
+
+          <div class="hero-photo-wrap" aria-label="Foto profil">
+            <div class="hero-photo">
+              <img
+                src="Images/IMG_20240902_054904_158.jpg.jpeg"
+                alt="Foto profil"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROFILE -->
+      <section class="panel section profile" id="profile">
+        <div class="profile-left">
+          <div class="hello">Hello, I am</div>
+          <h2 class="name">Mahesa Rezky Ramadhan</h2>
+          <div class="portrait" aria-label="Portrait illustration"></div>
+
+          <div class="info-row">
+            <div class="info-chip">Graphic Design</div>
+            <div class="info-chip">Prepress</div>
+            <div class="info-chip">Branding</div>
+            <div class="info-chip">Content</div>
+          </div>
+        </div>
+
+        <div class="profile-right">
+          <h3 class="about-title">About Me</h3>
+          <p class="about-text">
+            Saya adalah individu yang bertanggung jawab, disiplin, dan mampu
+            bekerja secara mandiri maupun dalam tim. Saya memiliki komitmen
+            tinggi dalam menyelesaikan pekerjaan dengan hasil terbaik, serta
+            selalu berusaha memberikan kontribusi yang positif bagi perusahaan.
+          </p>
+
+          <h3
+            class="about-title"
+            style="font-size: clamp(1.2rem, 2.4vw, 2rem); margin-top: 6px"
+          >
+            Software Skills
+          </h3>
+          <div class="skills" aria-label="Software skills">
+            <div class="skill">
+              <img
+                src="Images/Logo%20Adobe%20Ilustrator.png"
+                alt="Adobe Illustrator"
+              />
+              <span>Adobe Illustrator</span>
+            </div>
+            <div class="skill">
+              <img
+                src="Images/Logo%20Adobe%20Photoshop.png"
+                alt="Adobe Photoshop"
+              />
+              <span>Adobe Photoshop</span>
+            </div>
+            <div class="skill">
+              <img
+                src="Images/Logo%20Adobe%20Premier.png"
+                alt="Adobe Premiere"
+              />
+              <span>Adobe Premiere</span>
+            </div>
+            <div class="skill">
+              <img src="Images/Logo%20CorelDraw.png" alt="CorelDRAW" />
+              <span>CorelDRAW</span>
+            </div>
+            <div class="skill">
+              <img src="Images/Logo%20Capcut.png" alt="CapCut" />
+              <span>CapCut</span>
+            </div>
+            <div class="skill">
+              <img
+                src="Images/Logo%20Visual%20Studio.png"
+                alt="Visual Studio"
+              />
+              <span>Visual Studio</span>
+            </div>
+          </div>
+
+          <div class="meta-grid">
+            <div class="meta">
+              <h4>Education</h4>
+              <p>SMKN 2 Cikarang Barat - Multimedia 2020 - 2023</p>
+            </div>
+
+            <div class="meta">
+              <h4>Tools</h4>
+              <p>
+                CorelDRAW, Adobe Illustrator, Photoshop, editor video, UI/UX
+                design, layout, poster, banner, cover, social media, branding.
+              </p>
+            </div>
+
+            <div class="meta">
+              <h4>Experience</h4>
+              <div class="experience-list">
+                <article class="experience-item">
+                  <div class="experience-top">
+                    <div>
+                      <h5>Percetakan Oke Print Cikarang</h5>
+                      <div class="role">Operator Design</div>
+                    </div>
+                    <div class="date">Sept 2023 - Sept 2025</div>
+                  </div>
+                  <ul>
+                    <li>
+                      Membuat layout dan artwork untuk brosur, poster, dan kartu
+                      nama sesuai standar cetak.
+                    </li>
+                    <li>
+                      Mengolah file siap cetak, termasuk proofing, color
+                      correction, dan prepress.
+                    </li>
+                    <li>
+                      Menangani order pelanggan melalui WhatsApp dan email,
+                      serta memastikan file siap produksi.
+                    </li>
+                  </ul>
+                </article>
+
+                <article class="experience-item">
+                  <div class="experience-top">
+                    <div>
+                      <h5>BLKK Bekasi</h5>
+                      <div class="role">Asisten Instruktur Desain Grafis</div>
+                    </div>
+                    <div class="date">Juni 2023 - Juli 2023</div>
+                  </div>
+                  <ul>
+                    <li>
+                      Membantu instruktur mengajar CorelDRAW dan mendampingi
+                      peserta saat praktikum.
+                    </li>
+                    <li>
+                      Menyiapkan file latihan desain seperti vector, layout, dan
+                      tracing untuk kelas.
+                    </li>
+                  </ul>
+                </article>
+
+                <article class="experience-item">
+                  <div class="experience-top">
+                    <div>
+                      <h5>One Works / Runrantang</h5>
+                      <div class="role">Desain Grafis & Content Creator</div>
+                    </div>
+                    <div class="date">Sept 2025 - Feb 2026</div>
+                  </div>
+                  <ul>
+                    <li>
+                      Membuat desain sampul video dan konten visual untuk
+                      kebutuhan promosi.
+                    </li>
+                    <li>
+                      Mengedit video serta melakukan pengambilan video produk
+                      conditioner dan shampoo.
+                    </li>
+                  </ul>
+                </article>
+
+                <article class="experience-item">
+                  <div class="experience-top">
+                    <div>
+                      <h5>PT Flexypack</h5>
+                      <div class="role">DFE-Color Matching Packaging</div>
+                    </div>
+                    <div class="date">Feb 2026 - Juni 2026</div>
+                  </div>
+                  <ul>
+                    <li>
+                      Memeriksa file packaging agar sesuai standar, termasuk
+                      margin, layout, ukuran, dan typo.
+                    </li>
+                    <li>
+                      Melakukan pengecekan warna packaging serta memastikan
+                      hasil file siap produksi.
+                    </li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECT -->
+      <section class="panel section projects" id="project">
+        <div class="section-head">
+          <h3 class="projects-title">Recap Project 2026</h3>
+          <div class="pill">Selected works</div>
+        </div>
+
+        <div class="project-grid">
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/Banner R1.png" alt="Banner R1" />
+            </div>
+            <div class="label">
+              <strong>Banner Kanzen</strong><span>2026</span>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/1 (1).jpeg" alt="Bukber Berenan" />
+            </div>
+            <div class="label">
+              <strong>Lawson</strong><span>Photography</span>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/1 (2).jpeg" alt="Brand Built Different poster" />
+            </div>
+            <div class="label">
+              <strong>Banner Bukber</strong><span>Banner</span>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/1 (3).jpeg" alt="Campaign Product promo" />
+            </div>
+            <div class="label">
+              <strong>Brand Built Different</strong><span>Feed</span>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/1 (4).jpeg" alt="Masjid photography" />
+            </div>
+            <div class="label">
+              <strong>Shampoo Runrantang</strong><span>Feed</span>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/1 (5).jpeg" alt="Logo Arqelo" />
+            </div>
+            <div class="label">
+              <strong>Banner Es Teller</strong><span>Banner</span>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/1 (6).jpeg" alt="Tim Kreatif poster" />
+            </div>
+            <div class="label">
+              <strong>Logo Arqelo</strong><span>Brand</span>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/1 (7).jpeg" alt="Lawson photography" />
+            </div>
+            <div class="label">
+              <strong>Tim Kreatif</strong><span>Feed</span>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/1 (8).jpeg" alt="Brand Built Different cover" />
+            </div>
+            <div class="label">
+              <strong>Aestetic</strong><span>Photography</span>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/1 (9).jpeg" alt="Cara Order info design" />
+            </div>
+            <div class="label">
+              <strong>Cara Order</strong><span>Info Design</span>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/1 (10).jpeg" alt="Vision logo" />
+            </div>
+            <div class="label">
+              <strong>Brand Built</strong><span>Feed</span>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/1 (11).jpeg" alt="Webinar Algoritma event" />
+            </div>
+            <div class="label">
+              <strong>X Banner</strong><span>Promosi</span>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/1 (12).jpeg" alt="Jersey Design apparel" />
+            </div>
+            <div class="label"><strong>Webinar</strong><span>Feed</span></div>
+          </article>
+
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/1 (13).jpeg" alt="Black Jacket mockup" />
+            </div>
+            <div class="label"><strong>Webinart</strong><span>Feed</span></div>
+          </article>
+
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/1 (14).jpeg" alt="Team Wear uniform" />
+            </div>
+            <div class="label"><strong>Jacket</strong><span>Mockup</span></div>
+          </article>
+
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/1 (15).jpeg" alt="Polo Shirt mockup" />
+            </div>
+            <div class="label">
+              <strong>Pakaian Dinal Lapangan</strong><span>Mockup</span>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="proj-media">
+              <img src="Images/1 (16).jpeg" alt="Polo Shirt mockup" />
+            </div>
+            <div class="label">
+              <strong>Polo Shirt</strong><span>Mockup</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="panel section contact" id="contact">
+        <div class="contact-left">
+          <div class="contact-avatar" aria-label="Contact photo"></div>
+          <div class="socials">
+            <div class="soc">
+              <span class="soc-icon">
+                <img src="Images/Logo%20Instagram.png" alt="Instagram" />
+              </span>
+              <span>ekyy_28</span>
+            </div>
+            <div class="soc">
+              <span class="soc-icon">
+                <img src="Images/Logo%20Website.png" alt="Website" />
+              </span>
+              <span>arqelo.store</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-right">
+          <h3 class="thanks">Thank You <small>2026</small></h3>
+          <p class="contact-note">
+            Terima kasih sudah melihat portofolio ini. Tampilan dibuat lebih
+            clean, premium, dan modern agar hasil karya terlihat lebih kuat dan
+            profesional.
+          </p>
+
+          <div class="footer-assets">
+            <div class="mini one">
+              <img
+                class="img"
+                src="Images/Website%201.png"
+                alt="Portfolio 2026"
+              />
+              <div class="cap">Portfolio Website</div>
+            </div>
+            <div class="mini two">
+              <img
+                class="img"
+                src="Images/Website%202.png"
+                alt="Design Portfolio 2026"
+              />
+              <div class="cap">Portofolio Website</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
