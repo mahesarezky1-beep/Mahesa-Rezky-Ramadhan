@@ -185,30 +185,6 @@
         margin-bottom: 16px;
       }
 
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 14px;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        background: rgba(255, 255, 255, 0.05);
-        color: rgba(242, 247, 255, 0.88);
-        font-size: 11px;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        backdrop-filter: blur(14px);
-      }
-
-      .eyebrow::before {
-        content: "";
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: linear-gradient(180deg, var(--accent-2), var(--accent-3));
-        box-shadow: 0 0 18px rgba(124, 196, 255, 0.4);
-      }
-
       .hero {
         padding: 24px;
       }
@@ -323,11 +299,6 @@
         background:
           radial-gradient(700px 420px at 14% 20%, rgba(0, 168, 255, 0.12), transparent 62%),
           linear-gradient(180deg, rgba(8, 14, 22, 0.98), rgba(5, 8, 12, 0.99));
-      }
-
-      .profile-left,
-      .profile-right {
-        padding-top: 0;
       }
 
       .hello {
@@ -658,14 +629,6 @@
         align-items: end;
       }
 
-      .video-meta .filename {
-        margin: 0;
-        font-size: 12px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.9);
-      }
-
       .video-meta .hint {
         margin: 0;
         font-size: 11px;
@@ -771,8 +734,9 @@
       }
 
       .video-modal-stage video {
-        width: 100%;
-        height: 100%;
+        width: auto;
+        height: auto;
+        max-width: 100%;
         max-height: 100%;
         object-fit: contain;
         background: #000;
@@ -1260,7 +1224,7 @@
 
           <div class="skills" aria-label="Software skills">
             <div class="skill">
-              <img src="./Logo Adobe Ilustrator.png" alt="Adobe Illustrator" />
+              <img src="./Logo Adobe Illustrator.png" alt="Adobe Illustrator" />
               <span>Adobe Illustrator</span>
             </div>
             <div class="skill">
@@ -1573,7 +1537,7 @@
               </div>
             </div>
             <div class="label">
-              <strong>Before Video</strong><span>Video</span>
+              <strong>Portfolio Video 1</strong><span>Video</span>
             </div>
           </article>
 
@@ -1588,7 +1552,7 @@
               </div>
             </div>
             <div class="label">
-              <strong>Portfolio Video</strong><span>Video</span>
+              <strong>Portfolio Video 2</strong><span>Video</span>
             </div>
           </article>
         </div>
@@ -1701,6 +1665,13 @@
         document.body.style.overflow = "hidden";
 
         enterFullscreen(videoModalPanel);
+
+        modalVideo.onloadedmetadata = () => {
+          const playPromise = modalVideo.play();
+          if (playPromise && typeof playPromise.catch === "function") {
+            playPromise.catch(() => {});
+          }
+        };
 
         const playPromise = modalVideo.play();
         if (playPromise && typeof playPromise.catch === "function") {
