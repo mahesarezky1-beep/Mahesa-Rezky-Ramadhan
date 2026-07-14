@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
+    <title>Portfolio 2026</title>
     <style>
       :root {
         --bg: #05070c;
@@ -593,6 +593,176 @@
         white-space: nowrap;
       }
 
+      .video-section {
+        background:
+          radial-gradient(820px 420px at 50% 0%, rgba(57, 137, 255, 0.12), transparent 62%),
+          linear-gradient(180deg, rgba(8, 13, 19, 0.98), rgba(5, 8, 12, 0.99));
+      }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .video-card {
+        cursor: pointer;
+      }
+
+      .video-thumb {
+        position: relative;
+        min-height: 240px;
+        background:
+          radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.05), transparent 28%),
+          linear-gradient(180deg, rgba(23, 32, 46, 0.95), rgba(8, 11, 16, 0.98));
+        display: grid;
+        place-items: center;
+        padding: 18px;
+      }
+
+      .video-thumb::before {
+        content: "";
+        position: absolute;
+        inset: 18px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 40%),
+          radial-gradient(circle at 50% 50%, rgba(124, 196, 255, 0.1), transparent 62%);
+      }
+
+      .play-badge {
+        position: relative;
+        z-index: 1;
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(217, 232, 248, 0.96));
+        color: #0b1220;
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
+        font-size: 30px;
+        line-height: 1;
+      }
+
+      .video-meta {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: end;
+      }
+
+      .video-meta .filename {
+        margin: 0;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .video-meta .hint {
+        margin: 0;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.62);
+        text-align: right;
+      }
+
+      .video-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        background: rgba(2, 5, 10, 0.82);
+        backdrop-filter: blur(18px);
+      }
+
+      .video-modal.show {
+        display: flex;
+      }
+
+      .video-modal-panel {
+        width: min(1200px, 100%);
+        height: min(88vh, 760px);
+        position: relative;
+        border-radius: 26px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: linear-gradient(180deg, rgba(13, 18, 28, 0.98), rgba(6, 10, 16, 0.98));
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6);
+      }
+
+      .video-modal-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 14px 0;
+        pointer-events: none;
+      }
+
+      .modal-back {
+        pointer-events: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 999px;
+        cursor: pointer;
+        font: inherit;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        backdrop-filter: blur(12px);
+      }
+
+      .modal-title {
+        pointer-events: none;
+        margin: 0;
+        padding: 12px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .video-modal-stage {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        padding: 64px 16px 16px;
+      }
+
+      .video-modal-stage video {
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        background: #000;
+        border-radius: 18px;
+      }
+
       .project-grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -993,6 +1163,23 @@
         .skills {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+
+        .video-modal {
+          padding: 10px;
+        }
+
+        .video-modal-panel {
+          height: 90vh;
+          border-radius: 20px;
+        }
+
+        .video-modal-stage {
+          padding: 68px 10px 10px;
+        }
+
+        .modal-title {
+          display: none;
+        }
       }
     </style>
   </head>
@@ -1003,6 +1190,7 @@
           <a class="nav-link active" href="#home">Start</a>
           <a class="nav-link" href="#profile">Profile</a>
           <a class="nav-link" href="#project">Project</a>
+          <a class="nav-link" href="#video">Video</a>
           <a class="nav-link" href="#contact">Contact Person</a>
         </nav>
       </header>
@@ -1351,6 +1539,48 @@
         </div>
       </section>
 
+
+      <section class="panel section video-section" id="video">
+        <div class="section-head">
+          <h3 class="projects-title">Video Projects <span>Play & View</span></h3>
+          <div class="pill">Clickable Cards</div>
+        </div>
+
+        <div class="video-grid">
+          <article class="video-card" data-video="./before.mp4" data-title="before.mp4">
+            <div class="video-thumb">
+              <div class="play-badge">▶</div>
+              <div class="video-meta">
+                <div>
+                  <p class="filename">before.mp4</p>
+                  <p class="hint">Click to open fullscreen</p>
+                </div>
+                <p class="hint">Video Card</p>
+              </div>
+            </div>
+            <div class="label">
+              <strong>Before Video</strong><span>Video</span>
+            </div>
+          </article>
+
+          <article class="video-card" data-video="./portofolio.video.mp4" data-title="portofolio.video.mp4">
+            <div class="video-thumb">
+              <div class="play-badge">▶</div>
+              <div class="video-meta">
+                <div>
+                  <p class="filename">portofolio.video.mp4</p>
+                  <p class="hint">Click to open fullscreen</p>
+                </div>
+                <p class="hint">Video Card</p>
+              </div>
+            </div>
+            <div class="label">
+              <strong>Portfolio Video</strong><span>Video</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section class="panel section contact" id="contact">
         <div class="contact-left">
           <div class="contact-avatar" aria-label="Contact photo"></div>
@@ -1386,5 +1616,71 @@
         </div>
       </section>
     </main>
+    <script>
+      const videoModal = document.getElementById("videoModal");
+      const modalVideo = document.getElementById("modalVideo");
+      const modalTitle = document.getElementById("modalTitle");
+      const closeModalBtn = document.getElementById("closeModal");
+      const videoCards = document.querySelectorAll(".video-card");
+
+      function openVideo(src, title) {
+        modalVideo.pause();
+        modalVideo.removeAttribute("src");
+        modalVideo.load();
+
+        modalVideo.src = src;
+        modalTitle.textContent = title || "Video Viewer";
+        videoModal.classList.add("show");
+        videoModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+
+        const playPromise = modalVideo.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(() => {});
+        }
+      }
+
+      function closeVideo() {
+        modalVideo.pause();
+        modalVideo.removeAttribute("src");
+        modalVideo.load();
+        videoModal.classList.remove("show");
+        videoModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      videoCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          openVideo(card.dataset.video, card.dataset.title);
+        });
+      });
+
+      closeModalBtn.addEventListener("click", closeVideo);
+
+      videoModal.addEventListener("click", (e) => {
+        if (e.target === videoModal) {
+          closeVideo();
+        }
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && videoModal.classList.contains("show")) {
+          closeVideo();
+        }
+      });
+    </script>
+
+    <div class="video-modal" id="videoModal" aria-hidden="true">
+      <div class="video-modal-panel" role="dialog" aria-modal="true" aria-label="Video fullscreen viewer">
+        <div class="video-modal-header">
+          <button class="modal-back" id="closeModal" type="button">← Back</button>
+          <div class="modal-title" id="modalTitle">Video Viewer</div>
+        </div>
+        <div class="video-modal-stage">
+          <video id="modalVideo" controls playsinline></video>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
