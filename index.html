@@ -702,6 +702,22 @@
         box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6);
       }
 
+      .video-modal-panel:fullscreen {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        max-width: none;
+        max-height: none;
+      }
+
+      .video-modal-panel:-webkit-full-screen {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        max-width: none;
+        max-height: none;
+      }
+
       .video-modal-header {
         position: absolute;
         top: 0;
@@ -1539,7 +1555,6 @@
         </div>
       </section>
 
-
       <section class="panel section video-section" id="video">
         <div class="section-head">
           <h3 class="projects-title">Video Projects <span>Play & View</span></h3>
@@ -1562,7 +1577,7 @@
             </div>
           </article>
 
-          <article class="video-card" data-video="./portfolio.video.mp4" data-title="portfolio.video.mp4">
+          <article class="video-card" data-video="./portfolio-video.mp4" data-title="portfolio-video.mp4">
             <div class="video-thumb">
               <div class="play-badge">▶</div>
               <div class="video-meta">
@@ -1614,14 +1629,67 @@
         </div>
       </section>
     </main>
+
+    <div class="video-modal" id="videoModal" aria-hidden="true">
+      <div class="video-modal-panel" id="videoModalPanel" role="dialog" aria-modal="true" aria-label="Video fullscreen viewer">
+        <div class="video-modal-header">
+          <button class="modal-back" id="closeModal" type="button">← Back</button>
+          <div class="modal-title" id="modalTitle">Video Viewer</div>
+        </div>
+        <div class="video-modal-stage">
+          <video id="modalVideo" controls playsinline preload="metadata"></video>
+        </div>
+      </div>
+    </div>
+
     <script>
       const videoModal = document.getElementById("videoModal");
+      const videoModalPanel = document.getElementById("videoModalPanel");
       const modalVideo = document.getElementById("modalVideo");
       const modalTitle = document.getElementById("modalTitle");
       const closeModalBtn = document.getElementById("closeModal");
       const videoCards = document.querySelectorAll(".video-card");
 
+      function enterFullscreen(el) {
+        if (!el) return;
+        const request =
+          el.requestFullscreen ||
+          el.webkitRequestFullscreen ||
+          el.mozRequestFullScreen ||
+          el.msRequestFullscreen;
+
+        if (request) {
+          try {
+            const result = request.call(el);
+            if (result && typeof result.catch === "function") {
+              result.catch(() => {});
+            }
+          } catch (e) {}
+        }
+      }
+
+      function exitFullscreen() {
+        const exit =
+          document.exitFullscreen ||
+          document.webkitExitFullscreen ||
+          document.mozCancelFullScreen ||
+          document.msExitFullscreen;
+
+        if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
+          if (exit) {
+            try {
+              const result = exit.call(document);
+              if (result && typeof result.catch === "function") {
+                result.catch(() => {});
+              }
+            } catch (e) {}
+          }
+        }
+      }
+
       function openVideo(src, title) {
+        if (!src) return;
+
         modalVideo.pause();
         modalVideo.removeAttribute("src");
         modalVideo.load();
@@ -1631,6 +1699,8 @@
         videoModal.classList.add("show");
         videoModal.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
+
+        enterFullscreen(videoModalPanel);
 
         const playPromise = modalVideo.play();
         if (playPromise && typeof playPromise.catch === "function") {
@@ -1645,6 +1715,7 @@
         videoModal.classList.remove("show");
         videoModal.setAttribute("aria-hidden", "true");
         document.body.style.overflow = "";
+        exitFullscreen();
       }
 
       videoCards.forEach((card) => {
@@ -1666,19 +1737,12 @@
           closeVideo();
         }
       });
+
+      document.addEventListener("fullscreenchange", () => {
+        if (!document.fullscreenElement && videoModal.classList.contains("show")) {
+          videoModal.classList.add("show");
+        }
+      });
     </script>
-
-    <div class="video-modal" id="videoModal" aria-hidden="true">
-      <div class="video-modal-panel" role="dialog" aria-modal="true" aria-label="Video fullscreen viewer">
-        <div class="video-modal-header">
-          <button class="modal-back" id="closeModal" type="button">← Back</button>
-          <div class="modal-title" id="modalTitle">Video Viewer</div>
-        </div>
-        <div class="video-modal-stage">
-          <video id="modalVideo" controls playsinline></video>
-        </div>
-      </div>
-    </div>
-
   </body>
 </html>
