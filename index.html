@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>M R R • Portfolio</title>
-    
+
     <!-- Import Font Estetik Modern -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --bg: #030508;
@@ -29,9 +32,9 @@
         --radius-xl: 32px;
         --radius-lg: 24px;
         --radius-md: 16px;
-        
-        --font-ui: 'Plus Jakarta Sans', "Segoe UI", Roboto, sans-serif;
-        --font-heading: 'Outfit', "Segoe UI", Roboto, sans-serif;
+
+        --font-ui: "Plus Jakarta Sans", "Segoe UI", Roboto, sans-serif;
+        --font-heading: "Outfit", "Segoe UI", Roboto, sans-serif;
       }
 
       /* Custom Scrollbar */
@@ -54,19 +57,27 @@
         margin: 0;
         padding: 0;
       }
-      
+
       html {
         scroll-behavior: smooth;
       }
-      
+
       body {
         min-height: 100vh;
         color: var(--text);
         font-family: var(--font-ui);
         background-color: var(--bg);
         background-image:
-          radial-gradient(800px 450px at 10% 15%, rgba(33, 150, 243, 0.1), transparent 60%),
-          radial-gradient(600px 400px at 90% 20%, rgba(0, 229, 255, 0.05), transparent 60%),
+          radial-gradient(
+            800px 450px at 10% 15%,
+            rgba(33, 150, 243, 0.1),
+            transparent 60%
+          ),
+          radial-gradient(
+            600px 400px at 90% 20%,
+            rgba(0, 229, 255, 0.05),
+            transparent 60%
+          ),
           linear-gradient(180deg, #030508 0%, #060a12 50%, #030508 100%);
         overflow-x: hidden;
         font-feature-settings: "cv02", "cv03", "cv04", "cv11";
@@ -77,10 +88,18 @@
 
       /* Dynamic Animated Blobs */
       @keyframes blobFloat {
-        0% { transform: translate(0, 0) scale(1); }
-        33% { transform: translate(30px, -50px) scale(1.1); }
-        66% { transform: translate(-20px, 20px) scale(0.9); }
-        100% { transform: translate(0, 0) scale(1); }
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        33% {
+          transform: translate(30px, -50px) scale(1.1);
+        }
+        66% {
+          transform: translate(-20px, 20px) scale(0.9);
+        }
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
       }
 
       body::before,
@@ -132,16 +151,23 @@
       .animate {
         opacity: 0;
         transform: translateY(30px);
-        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-                    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        transition:
+          opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       }
       .animate.in-view {
         opacity: 1;
         transform: translateY(0);
       }
-      .delay-1 { transition-delay: 0.1s; }
-      .delay-2 { transition-delay: 0.2s; }
-      .delay-3 { transition-delay: 0.3s; }
+      .delay-1 {
+        transition-delay: 0.1s;
+      }
+      .delay-2 {
+        transition-delay: 0.2s;
+      }
+      .delay-3 {
+        transition-delay: 0.3s;
+      }
 
       /* Navigation Topbar Modern */
       .topbar {
@@ -157,7 +183,9 @@
         transform: translateY(-100%);
       }
       @keyframes slideDown {
-        to { transform: translateY(0); }
+        to {
+          transform: translateY(0);
+        }
       }
       .topbar-inner {
         display: inline-flex;
@@ -183,7 +211,7 @@
         overflow: hidden;
       }
       .nav-link::before {
-        content: '';
+        content: "";
         position: absolute;
         inset: 0;
         background: #fff;
@@ -210,16 +238,22 @@
         overflow: hidden;
         border: 1px solid var(--stroke);
         border-radius: var(--radius-xl);
-        background: linear-gradient(180deg, rgba(12, 18, 28, 0.7) 0%, rgba(5, 8, 14, 0.8) 100%);
+        background: linear-gradient(
+          180deg,
+          rgba(12, 18, 28, 0.7) 0%,
+          rgba(5, 8, 14, 0.8) 100%
+        );
         backdrop-filter: blur(16px);
         box-shadow: var(--shadow);
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        transition:
+          transform 0.4s ease,
+          box-shadow 0.4s ease;
       }
       .panel:hover {
         box-shadow: var(--shadow-glow);
         border-color: rgba(255, 255, 255, 0.12);
       }
-      
+
       /* GlowBorder Line Efek Premium */
       .panel::before {
         content: "";
@@ -227,8 +261,16 @@
         inset: 0;
         padding: 1px;
         border-radius: inherit;
-        background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 40%, transparent 60%, rgba(100,181,246,0.15) 100%);
-        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.15) 0%,
+          transparent 40%,
+          transparent 60%,
+          rgba(100, 181, 246, 0.15) 100%
+        );
+        -webkit-mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
         -webkit-mask-composite: xor;
         mask-composite: exclude;
         pointer-events: none;
@@ -236,7 +278,7 @@
       .section {
         padding: 48px;
       }
-      
+
       .section-head {
         display: flex;
         justify-content: space-between;
@@ -285,13 +327,21 @@
         height: 6px;
         border-radius: 50%;
         background: var(--accent);
-        box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+        box-shadow:
+          0 0 10px var(--accent),
+          0 0 20px var(--accent);
         animation: pulse 2s infinite;
       }
       @keyframes pulse {
-        0% { box-shadow: 0 0 0 0 rgba(100, 181, 246, 0.7); }
-        70% { box-shadow: 0 0 0 6px rgba(100, 181, 246, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(100, 181, 246, 0); }
+        0% {
+          box-shadow: 0 0 0 0 rgba(100, 181, 246, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 6px rgba(100, 181, 246, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(100, 181, 246, 0);
+        }
       }
 
       .hero-title {
@@ -303,7 +353,12 @@
         color: #fff;
       }
       .hero-title span {
-        background: linear-gradient(135deg, #ffffff 20%, #64b5f6 80%, #2196f3 100%);
+        background: linear-gradient(
+          135deg,
+          #ffffff 20%,
+          #64b5f6 80%,
+          #2196f3 100%
+        );
         background-size: 200% auto;
         -webkit-background-clip: text;
         background-clip: text;
@@ -311,7 +366,9 @@
         animation: shine 4s linear infinite;
       }
       @keyframes shine {
-        to { background-position: 200% center; }
+        to {
+          background-position: 200% center;
+        }
       }
       .hero-subtitle {
         font-size: clamp(1.1rem, 2vw, 1.4rem);
@@ -332,12 +389,18 @@
         border-radius: var(--radius-lg);
         overflow: hidden;
         border: 1px solid var(--stroke-strong);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(100, 181, 246, 0.1);
-        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+        box-shadow:
+          0 20px 40px rgba(0, 0, 0, 0.4),
+          0 0 30px rgba(100, 181, 246, 0.1);
+        transition:
+          transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+          box-shadow 0.6s ease;
       }
       .hero-photo:hover {
         transform: translateY(-10px) rotateY(-5deg) rotateX(5deg);
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(100, 181, 246, 0.2);
+        box-shadow:
+          0 30px 60px rgba(0, 0, 0, 0.5),
+          0 0 40px rgba(100, 181, 246, 0.2);
         border-color: rgba(255, 255, 255, 0.3);
       }
       .hero-photo img {
@@ -377,7 +440,12 @@
         width: 100px;
         height: 5px;
         border-radius: 999px;
-        background: linear-gradient(90deg, var(--accent), var(--accent-3), transparent);
+        background: linear-gradient(
+          90deg,
+          var(--accent),
+          var(--accent-3),
+          transparent
+        );
         margin: 20px 0 32px;
       }
       .portrait {
@@ -387,10 +455,14 @@
         border-radius: var(--radius-lg);
         overflow: hidden;
         border: 1px solid var(--stroke);
-        background: linear-gradient(180deg, rgba(255,255,255,0.05), transparent), url("./IMG_20240316_104015_400.webp") center/cover no-repeat;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent),
+          url("./IMG_20240316_104015_400.webp") center/cover no-repeat;
         box-shadow: 0 20px 40px rgba(33, 150, 243, 0.15);
         margin-bottom: 32px;
-        transition: transform 0.5s ease, border-color 0.5s ease;
+        transition:
+          transform 0.5s ease,
+          border-color 0.5s ease;
       }
       .portrait:hover {
         transform: scale(1.03);
@@ -458,7 +530,9 @@
         background: rgba(255, 255, 255, 0.08);
         border-color: var(--accent);
         transform: translateY(-5px) scale(1.02);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 0 15px rgba(100, 181, 246, 0.1);
+        box-shadow:
+          0 10px 20px rgba(0, 0, 0, 0.2),
+          0 0 15px rgba(100, 181, 246, 0.1);
       }
       .skill img {
         width: 48px;
@@ -522,7 +596,7 @@
         border-color: var(--accent);
       }
       .experience-item::before {
-        content: '';
+        content: "";
         position: absolute;
         left: -5px;
         top: 4px;
@@ -560,7 +634,7 @@
         font-size: 11px;
         padding: 4px 12px;
         border-radius: 999px;
-        background: rgba(255,255,255,0.08);
+        background: rgba(255, 255, 255, 0.08);
         color: #fff;
         font-weight: 700;
         letter-spacing: 0.05em;
@@ -600,7 +674,7 @@
         letter-spacing: 0.15em;
         text-transform: uppercase;
         font-weight: 800;
-        box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
       }
       /* Dynamic Fluid Grid System (Responsif Otomatis Tanpa Patah) */
       .project-grid {
@@ -622,7 +696,9 @@
       .proj:hover {
         transform: translateY(-8px);
         border-color: var(--accent);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(100, 181, 246, 0.1);
+        box-shadow:
+          0 20px 40px rgba(0, 0, 0, 0.4),
+          0 0 20px rgba(100, 181, 246, 0.1);
         background: rgba(255, 255, 255, 0.05);
         z-index: 2;
       }
@@ -630,7 +706,7 @@
         position: relative;
         aspect-ratio: 4 / 3;
         overflow: hidden;
-        background: rgba(0,0,0,0.3);
+        background: rgba(0, 0, 0, 0.3);
         padding: 16px;
         display: flex;
         align-items: center;
@@ -696,19 +772,25 @@
       .video-card:hover {
         transform: translateY(-8px);
         border-color: var(--accent);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(100, 181, 246, 0.1);
+        box-shadow:
+          0 20px 40px rgba(0, 0, 0, 0.4),
+          0 0 20px rgba(100, 181, 246, 0.1);
       }
       .video-thumb {
         position: relative;
         aspect-ratio: 16 / 9;
-        background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(0,0,0,0.6));
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.05),
+          rgba(0, 0, 0, 0.6)
+        );
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
       }
       .video-thumb::before {
-        content: '';
+        content: "";
         position: absolute;
         inset: 0;
         background: inherit;
@@ -726,10 +808,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(255,255,255,0.9);
+        background: rgba(255, 255, 255, 0.9);
         color: #000;
         font-size: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         padding-left: 4px;
       }
@@ -746,12 +828,16 @@
         flex-direction: column;
         justify-content: space-between;
         padding: 16px;
-        background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 60%);
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.8) 0%,
+          transparent 60%
+        );
         z-index: 1;
       }
       .video-meta .hint {
         font-size: 11px;
-        color: rgba(255,255,255,0.7);
+        color: rgba(255, 255, 255, 0.7);
         text-transform: uppercase;
         letter-spacing: 0.1em;
         font-weight: 600;
@@ -778,8 +864,10 @@
         border-radius: 50%;
         border: 3px solid var(--stroke-strong);
         background: url("./20230812_211508.jpg") center/cover no-repeat;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-        transition: transform 0.5s ease, border-color 0.5s ease;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        transition:
+          transform 0.5s ease,
+          border-color 0.5s ease;
       }
       .contact-avatar:hover {
         transform: scale(1.05) rotate(5deg);
@@ -807,7 +895,7 @@
         border-color: var(--accent);
         color: var(--accent);
         transform: translateX(5px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       }
       .soc-icon {
         width: 24px;
@@ -821,7 +909,7 @@
         height: 100%;
         object-fit: contain;
       }
-      
+
       .thanks {
         font-family: var(--font-heading);
         font-size: clamp(3rem, 6vw, 5rem);
@@ -851,7 +939,9 @@
         border: 1px solid var(--stroke);
         overflow: hidden;
         position: relative;
-        transition: transform 0.4s ease, border-color 0.4s ease;
+        transition:
+          transform 0.4s ease,
+          border-color 0.4s ease;
       }
       .mini:hover {
         transform: translateY(-5px);
@@ -881,7 +971,11 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.8) 0%,
+          transparent 100%
+        );
       }
 
       /* VIDEO MODAL MODERN */
@@ -910,7 +1004,9 @@
         overflow: hidden;
         border: 1px solid var(--stroke-strong);
         position: relative;
-        box-shadow: 0 40px 80px rgba(0,0,0,0.8), 0 0 40px rgba(100,181,246,0.1);
+        box-shadow:
+          0 40px 80px rgba(0, 0, 0, 0.8),
+          0 0 40px rgba(100, 181, 246, 0.1);
         transform: scale(0.95) translateY(20px);
         transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       }
@@ -930,7 +1026,7 @@
       }
       .modal-back {
         pointer-events: auto;
-        border: 1px solid rgba(255,255,255,0.2);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         background: rgba(0, 0, 0, 0.7);
         color: #fff;
         padding: 8px 16px;
@@ -952,7 +1048,7 @@
         font-size: 12px;
         padding: 8px 16px;
         border-radius: 999px;
-        border: 1px solid rgba(255,255,255,0.15);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         font-weight: 600;
         backdrop-filter: blur(10px);
       }
@@ -968,7 +1064,9 @@
 
       /* MEDIA QUERIES UNTUK LAYAR MOBILES / TABLETS */
       @media (max-width: 968px) {
-        .hero-grid, .profile, .contact {
+        .hero-grid,
+        .profile,
+        .contact {
           grid-template-columns: 1fr;
           gap: 40px;
         }
@@ -1025,9 +1123,7 @@
     </style>
   </head>
   <body>
-    
     <main class="page">
-      
       <!-- Header Menu Navigasi -->
       <header class="topbar" aria-label="Navigasi utama">
         <nav class="topbar-inner">
@@ -1077,19 +1173,44 @@
             maupun dalam tim, serta selalu berkomitmen untuk menghasilkan karya
             yang rapi, menarik, dan sesuai kebutuhan. Dengan pengalaman di
             bidang desain grafis, prepress, dan content creation, saya siap
-            memberikan kontribusi terbaik dalam setiap pekerjaan yang saya tangani.
+            memberikan kontribusi terbaik dalam setiap pekerjaan yang saya
+            tangani.
           </p>
-          
-          <h3 class="about-title" style="font-size: 1.4rem; margin-top: 16px;">
+
+          <h3 class="about-title" style="font-size: 1.4rem; margin-top: 16px">
             Software Skills
           </h3>
           <div class="skills" aria-label="Software skills">
-            <div class="skill"><img src="./Logo Adobe Illustrator.png" alt="Adobe Illustrator" /><span>Illustrator</span></div>
-            <div class="skill"><img src="./Logo Adobe Photoshop.png" alt="Adobe Photoshop" /><span>Photoshop</span></div>
-            <div class="skill"><img src="./Logo Adobe Premier.png" alt="Adobe Premiere" /><span>Premiere</span></div>
-            <div class="skill"><img src="./Logo CorelDraw.png" alt="CorelDRAW" /><span>CorelDRAW</span></div>
-            <div class="skill"><img src="./Logo Capcut.png" alt="CapCut" /><span>CapCut</span></div>
-            <div class="skill"><img src="./Logo Visual Studio.png" alt="Visual Studio" /><span>VS Code</span></div>
+            <div class="skill">
+              <img
+                src="./Logo Adobe Illustrator.png"
+                alt="Adobe Illustrator"
+              /><span>Illustrator</span>
+            </div>
+            <div class="skill">
+              <img
+                src="./Logo Adobe Photoshop.png"
+                alt="Adobe Photoshop"
+              /><span>Photoshop</span>
+            </div>
+            <div class="skill">
+              <img src="./Logo Adobe Premier.png" alt="Adobe Premiere" /><span
+                >Premiere</span
+              >
+            </div>
+            <div class="skill">
+              <img src="./Logo CorelDraw.png" alt="CorelDRAW" /><span
+                >CorelDRAW</span
+              >
+            </div>
+            <div class="skill">
+              <img src="./Logo Capcut.png" alt="CapCut" /><span>CapCut</span>
+            </div>
+            <div class="skill">
+              <img src="./Logo Visual Studio.png" alt="Visual Studio" /><span
+                >VS Code</span
+              >
+            </div>
           </div>
           <div class="meta-grid">
             <div class="meta">
@@ -1098,7 +1219,11 @@
             </div>
             <div class="meta">
               <h4>Tools & Expertise</h4>
-              <p>CorelDRAW, Adobe Illustrator, Photoshop, Video Editing, UI/UX Design, Layout, Poster, Banner, Cover, Social Media, and Branding.</p>
+              <p>
+                CorelDRAW, Adobe Illustrator, Photoshop, Video Editing, UI/UX
+                Design, Layout, Poster, Banner, Cover, Social Media, and
+                Branding.
+              </p>
             </div>
             <div class="meta">
               <h4>Experience</h4>
@@ -1112,9 +1237,17 @@
                     <div class="date">Sept 2023 - Sept 2025</div>
                   </div>
                   <ul>
-                    <li>Membuat layout dan artwork siap cetak berstandar visual konsisten.</li>
-                    <li>Mengolah file produksi, proofing, color correction, dan prepress secara presisi.</li>
-                    <li>Menangani komunikasi kebutuhan pelanggan dengan baik.</li>
+                    <li>
+                      Membuat layout dan artwork siap cetak berstandar visual
+                      konsisten.
+                    </li>
+                    <li>
+                      Mengolah file produksi, proofing, color correction, dan
+                      prepress secara presisi.
+                    </li>
+                    <li>
+                      Menangani komunikasi kebutuhan pelanggan dengan baik.
+                    </li>
                   </ul>
                 </article>
                 <article class="experience-item">
@@ -1126,8 +1259,14 @@
                     <div class="date">Juni 2023 - Juli 2023</div>
                   </div>
                   <ul>
-                    <li>Membantu proses pembelajaran CorelDRAW dan mendampingi praktik peserta.</li>
-                    <li>Menyiapkan materi latihan desain vector, layout, dan tracing.</li>
+                    <li>
+                      Membantu proses pembelajaran CorelDRAW dan mendampingi
+                      praktik peserta.
+                    </li>
+                    <li>
+                      Menyiapkan materi latihan desain vector, layout, dan
+                      tracing.
+                    </li>
                   </ul>
                 </article>
                 <article class="experience-item">
@@ -1139,7 +1278,10 @@
                     <div class="date">Sept 2025 - Feb 2026</div>
                   </div>
                   <ul>
-                    <li>Membuat visual konten promosi dan editing video produk hair care secara menarik.</li>
+                    <li>
+                      Membuat visual konten promosi dan editing video produk
+                      hair care secara menarik.
+                    </li>
                   </ul>
                 </article>
                 <article class="experience-item">
@@ -1151,7 +1293,10 @@
                     <div class="date">Feb 2026 - Juni 2026</div>
                   </div>
                   <ul>
-                    <li>Memeriksa standarisasi file packaging (layout, margin, typo) dan akurasi warna produksi.</li>
+                    <li>
+                      Memeriksa standarisasi file packaging (layout, margin,
+                      typo) dan akurasi warna produksi.
+                    </li>
                   </ul>
                 </article>
               </div>
@@ -1167,34 +1312,147 @@
           <div class="pill">Featured Works</div>
         </div>
         <div class="project-grid">
-          <article class="proj animate delay-1"><div class="proj-media"><img src="./Banner R1.png" alt="Banner R1" /></div><div class="label"><strong>Banner Kanzen</strong><span>Banner</span></div></article>
-          <article class="proj animate delay-1"><div class="proj-media"><img src="./1 (1).jpeg" alt="Lawson" /></div><div class="label"><strong>Lawson</strong><span>Photography</span></div></article>
-          <article class="proj animate delay-2"><div class="proj-media"><img src="./1 (2).jpeg" alt="Banner Bukber" /></div><div class="label"><strong>Banner Bukber</strong><span>Event Banner</span></div></article>
-          <article class="proj animate delay-2"><div class="proj-media"><img src="./1 (3).jpeg" alt="Brand Built Different" /></div><div class="label"><strong>Brand Built Different</strong><span>Feed Design</span></div></article>
-          <article class="proj animate delay-3"><div class="proj-media"><img src="./1 (4).jpeg" alt="Shampoo" /></div><div class="label"><strong>Shampoo Runrantang</strong><span>Social Media</span></div></article>
-          <article class="proj animate delay-3"><div class="proj-media"><img src="./1 (5).jpeg" alt="Banner Es Teller" /></div><div class="label"><strong>Banner Es Teler</strong><span>Banner</span></div></article>
-          <article class="proj animate delay-1"><div class="proj-media"><img src="./1 (6).jpeg" alt="Logo Arqelo" /></div><div class="label"><strong>Logo Arqelo</strong><span>Brand</span></div></article>
-          <article class="proj animate delay-1"><div class="proj-media"><img src="./1 (7).jpeg" alt="Tim Kreatif" /></div><div class="label"><strong>Tim Kreatif</strong><span>Feed Design</span></div></article>
-          <article class="proj animate delay-2"><div class="proj-media"><img src="./1 (8).jpeg" alt="Aesthetic" /></div><div class="label"><strong>Aesthetic</strong><span>Photography</span></div></article>
-          <article class="proj animate delay-2"><div class="proj-media"><img src="./1 (9).jpeg" alt="Cara Order" /></div><div class="label"><strong>Cara Order</strong><span>Info Design</span></div></article>
-          <article class="proj animate delay-3"><div class="proj-media"><img src="./1 (10).jpeg" alt="Brand Built" /></div><div class="label"><strong>Brand Built</strong><span>Feed Design</span></div></article>
-          <article class="proj animate delay-3"><div class="proj-media"><img src="./1 (11).jpeg" alt="X Banner" /></div><div class="label"><strong>X Banner</strong><span>Promo</span></div></article>
-          <article class="proj animate delay-1"><div class="proj-media"><img src="./1 (12).jpeg" alt="Webinar" /></div><div class="label"><strong>Webinar</strong><span>Feed</span></div></article>
-          <article class="proj animate delay-1"><div class="proj-media"><img src="./1 (13).jpeg" alt="Webinar" /></div><div class="label"><strong>Webinar</strong><span>Feed</span></div></article>
-          <article class="proj animate delay-2"><div class="proj-media"><img src="./1 (14).jpeg" alt="Jacket" /></div><div class="label"><strong>Jacket</strong><span>Mockup</span></div></article>
-          <article class="proj animate delay-2"><div class="proj-media"><img src="./1 (15).jpeg" alt="PDL" /></div><div class="label"><strong>Pakaian Dinas</strong><span>Mockup</span></div></article>
-          <article class="proj animate delay-3"><div class="proj-media"><img src="./1 (16).jpeg" alt="Polo" /></div><div class="label"><strong>Polo Shirt</strong><span>Mockup</span></div></article>
+          <article class="proj animate delay-1">
+            <div class="proj-media">
+              <img src="./Banner R1.png" alt="Banner R1" />
+            </div>
+            <div class="label">
+              <strong>Banner Kanzen</strong><span>Banner</span>
+            </div>
+          </article>
+          <article class="proj animate delay-1">
+            <div class="proj-media">
+              <img src="./1 (1).jpeg" alt="Lawson" />
+            </div>
+            <div class="label">
+              <strong>Lawson</strong><span>Photography</span>
+            </div>
+          </article>
+          <article class="proj animate delay-2">
+            <div class="proj-media">
+              <img src="./1 (2).jpeg" alt="Banner Bukber" />
+            </div>
+            <div class="label">
+              <strong>Banner Bukber</strong><span>Event Banner</span>
+            </div>
+          </article>
+          <article class="proj animate delay-2">
+            <div class="proj-media">
+              <img src="./1 (3).jpeg" alt="Brand Built Different" />
+            </div>
+            <div class="label">
+              <strong>Brand Built Different</strong><span>Feed Design</span>
+            </div>
+          </article>
+          <article class="proj animate delay-3">
+            <div class="proj-media">
+              <img src="./1 (4).jpeg" alt="Shampoo" />
+            </div>
+            <div class="label">
+              <strong>Shampoo Runrantang</strong><span>Social Media</span>
+            </div>
+          </article>
+          <article class="proj animate delay-3">
+            <div class="proj-media">
+              <img src="./1 (5).jpeg" alt="Banner Es Teller" />
+            </div>
+            <div class="label">
+              <strong>Banner Es Teler</strong><span>Banner</span>
+            </div>
+          </article>
+          <article class="proj animate delay-1">
+            <div class="proj-media">
+              <img src="./1 (6).jpeg" alt="Logo Arqelo" />
+            </div>
+            <div class="label">
+              <strong>Logo Arqelo</strong><span>Brand</span>
+            </div>
+          </article>
+          <article class="proj animate delay-1">
+            <div class="proj-media">
+              <img src="./1 (7).jpeg" alt="Tim Kreatif" />
+            </div>
+            <div class="label">
+              <strong>Tim Kreatif</strong><span>Feed Design</span>
+            </div>
+          </article>
+          <article class="proj animate delay-2">
+            <div class="proj-media">
+              <img src="./1 (8).jpeg" alt="Aesthetic" />
+            </div>
+            <div class="label">
+              <strong>Aesthetic</strong><span>Photography</span>
+            </div>
+          </article>
+          <article class="proj animate delay-2">
+            <div class="proj-media">
+              <img src="./1 (9).jpeg" alt="Cara Order" />
+            </div>
+            <div class="label">
+              <strong>Cara Order</strong><span>Info Design</span>
+            </div>
+          </article>
+          <article class="proj animate delay-3">
+            <div class="proj-media">
+              <img src="./1 (10).jpeg" alt="Brand Built" />
+            </div>
+            <div class="label">
+              <strong>Brand Built</strong><span>Feed Design</span>
+            </div>
+          </article>
+          <article class="proj animate delay-3">
+            <div class="proj-media">
+              <img src="./1 (11).jpeg" alt="X Banner" />
+            </div>
+            <div class="label"><strong>X Banner</strong><span>Promo</span></div>
+          </article>
+          <article class="proj animate delay-1">
+            <div class="proj-media">
+              <img src="./1 (12).jpeg" alt="Webinar" />
+            </div>
+            <div class="label"><strong>Webinar</strong><span>Feed</span></div>
+          </article>
+          <article class="proj animate delay-1">
+            <div class="proj-media">
+              <img src="./1 (13).jpeg" alt="Webinar" />
+            </div>
+            <div class="label"><strong>Webinar</strong><span>Feed</span></div>
+          </article>
+          <article class="proj animate delay-2">
+            <div class="proj-media">
+              <img src="./1 (14).jpeg" alt="Jacket" />
+            </div>
+            <div class="label"><strong>Jacket</strong><span>Mockup</span></div>
+          </article>
+          <article class="proj animate delay-2">
+            <div class="proj-media"><img src="./1 (15).jpeg" alt="PDL" /></div>
+            <div class="label">
+              <strong>Pakaian Dinas</strong><span>Mockup</span>
+            </div>
+          </article>
+          <article class="proj animate delay-3">
+            <div class="proj-media"><img src="./1 (16).jpeg" alt="Polo" /></div>
+            <div class="label">
+              <strong>Polo Shirt</strong><span>Mockup</span>
+            </div>
+          </article>
         </div>
       </section>
 
       <!-- Video Projects Section -->
       <section class="panel section video-section animate" id="video">
         <div class="section-head">
-          <h3 class="projects-title">Video Projects <span>Play & View</span></h3>
+          <h3 class="projects-title">
+            Video Projects <span>Play & View</span>
+          </h3>
           <div class="pill">Clickable Cards</div>
         </div>
         <div class="video-grid">
-          <article class="video-card animate delay-1" data-video="./Before.mp4" data-title="Before.mp4">
+          <article
+            class="video-card animate delay-1"
+            data-video="./Before.mp4"
+            data-title="Before.mp4"
+          >
             <div class="video-thumb">
               <div class="play-badge">▶</div>
               <div class="video-meta">
@@ -1202,9 +1460,15 @@
                 <p class="hint hint-right">Video Card</p>
               </div>
             </div>
-            <div class="label"><strong>Before Video</strong><span>Video</span></div>
+            <div class="label">
+              <strong>Before Video</strong><span>Video</span>
+            </div>
           </article>
-          <article class="video-card animate delay-2" data-video="./portfolio-video.mp4" data-title="portfolio-video.mp4">
+          <article
+            class="video-card animate delay-2"
+            data-video="./portfolio-video.mp4"
+            data-title="portfolio-video.mp4"
+          >
             <div class="video-thumb">
               <div class="play-badge">▶</div>
               <div class="video-meta">
@@ -1212,9 +1476,15 @@
                 <p class="hint hint-right">Video Card</p>
               </div>
             </div>
-            <div class="label"><strong>Portfolio Video</strong><span>Video</span></div>
+            <div class="label">
+              <strong>Portfolio Video</strong><span>Video</span>
+            </div>
           </article>
-          <article class="video-card animate delay-3" data-video="./portfolio-video 2.mp4" data-title="portfolio-video 2.mp4">
+          <article
+            class="video-card animate delay-3"
+            data-video="./portfolio-video 2.mp4"
+            data-title="portfolio-video 2.mp4"
+          >
             <div class="video-thumb">
               <div class="play-badge">▶</div>
               <div class="video-meta">
@@ -1222,7 +1492,9 @@
                 <p class="hint hint-right">Video Card</p>
               </div>
             </div>
-            <div class="label"><strong>Portfolio Video 2</strong><span>Video</span></div>
+            <div class="label">
+              <strong>Portfolio Video 2</strong><span>Video</span>
+            </div>
           </article>
         </div>
       </section>
@@ -1233,11 +1505,15 @@
           <div class="contact-avatar" aria-label="Contact photo"></div>
           <div class="socials">
             <a href="https://instagram.com/ekyy28_" target="_blank" class="soc">
-              <span class="soc-icon"><img src="./Logo Instagram.png" alt="Instagram" /></span>
+              <span class="soc-icon"
+                ><img src="./Logo Instagram.png" alt="Instagram"
+              /></span>
               <span>@ekyy28_</span>
             </a>
             <div class="soc">
-              <span class="soc-icon"><img src="./Logo Website.png" alt="Website" /></span>
+              <span class="soc-icon"
+                ><img src="./Logo Website.png" alt="Website"
+              /></span>
               <span>arqelo.store</span>
             </div>
           </div>
@@ -1245,8 +1521,14 @@
         <div class="contact-right animate delay-2">
           <h3 class="thanks">Thank You <small>2026</small></h3>
           <div class="footer-assets">
-            <div class="mini"><img class="img" src="./Website 1.png" alt="Portfolio" /><div class="cap">Website P1</div></div>
-            <div class="mini"><img class="img" src="./Website 2.png" alt="Portfolio" /><div class="cap">Website P2</div></div>
+            <div class="mini">
+              <img class="img" src="./Website 1.png" alt="Portfolio" />
+              <div class="cap">Website P1</div>
+            </div>
+            <div class="mini">
+              <img class="img" src="./Website 2.png" alt="Portfolio" />
+              <div class="cap">Website P2</div>
+            </div>
           </div>
         </div>
       </section>
@@ -1254,13 +1536,25 @@
 
     <!-- Video Modal Viewer -->
     <div class="video-modal" id="videoModal" aria-hidden="true">
-      <div class="video-modal-panel" id="videoModalPanel" role="dialog" aria-modal="true">
+      <div
+        class="video-modal-panel"
+        id="videoModalPanel"
+        role="dialog"
+        aria-modal="true"
+      >
         <div class="video-modal-header">
-          <button class="modal-back" id="closeModal" type="button">← Close</button>
+          <button class="modal-back" id="closeModal" type="button">
+            ← Close
+          </button>
           <div class="modal-title" id="modalTitle">Video Viewer</div>
         </div>
         <div class="video-modal-stage">
-          <video id="modalVideo" controls playsinline preload="metadata"></video>
+          <video
+            id="modalVideo"
+            controls
+            playsinline
+            preload="metadata"
+          ></video>
         </div>
       </div>
     </div>
@@ -1270,19 +1564,21 @@
       // Scroll Animations via Intersection Observer
       const observerOptions = {
         threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
+        rootMargin: "0px 0px -50px 0px",
       };
 
       const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
+            entry.target.classList.add("in-view");
             observer.unobserve(entry.target); // Animate once
           }
         });
       }, observerOptions);
 
-      document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+      document
+        .querySelectorAll(".animate")
+        .forEach((el) => observer.observe(el));
 
       // Video Modal Controls
       const videoModal = document.getElementById("videoModal");
@@ -1299,7 +1595,7 @@
         document.body.style.overflow = "hidden";
         modalVideo.play().catch(() => {});
       }
-      
+
       function closeVideo() {
         modalVideo.pause();
         modalVideo.src = "";
@@ -1307,15 +1603,19 @@
         document.body.style.overflow = "";
       }
 
-      videoCards.forEach(card => {
+      videoCards.forEach((card) => {
         card.addEventListener("click", () => {
           openVideo(card.dataset.video, card.dataset.title);
         });
       });
 
       closeModalBtn.addEventListener("click", closeVideo);
-      videoModal.addEventListener("click", (e) => { if (e.target === videoModal) closeVideo(); });
-      window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeVideo(); });
+      videoModal.addEventListener("click", (e) => {
+        if (e.target === videoModal) closeVideo();
+      });
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeVideo();
+      });
 
       // Auto-active Nav Link on Scroll
       const sections = document.querySelectorAll("section[id]");
@@ -1323,13 +1623,13 @@
 
       window.addEventListener("scroll", () => {
         let current = "";
-        sections.forEach(section => {
+        sections.forEach((section) => {
           const sectionTop = section.offsetTop;
           if (pageYOffset >= sectionTop - 150) {
             current = section.getAttribute("id");
           }
         });
-        navLinks.forEach(link => {
+        navLinks.forEach((link) => {
           link.classList.remove("active");
           if (link.getAttribute("href").includes(current)) {
             link.classList.add("active");
